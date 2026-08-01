@@ -1,0 +1,108 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relaxing Game | MindCare</title>
+    <link rel="shortcut icon" href="./logo of website.PNG" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-spa"></i> MindCare
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="game.html" class="active">Relaxing Game</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <header class="page-header">
+    <h1>Bubble Pop</h1>
+    <p>Pop the rising bubbles to relax your mind and refresh your focus.</p>
+  </header>
+
+  <!-- ============ GAME PANEL ============ -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div class="game-panel reveal">
+
+        <!-- Score + Time display -->
+        <div class="game-stats">
+          <div>
+            <div class="stat-value" id="scoreValue">0</div>
+            <div class="stat-label">Score</div>
+          </div>
+          <div>
+            <div class="stat-value" id="timeValue">30</div>
+            <div class="stat-label">Seconds Left</div>
+          </div>
+          <div>
+            <div class="stat-value" id="bestValue">0</div>
+            <div class="stat-label">Best Score</div>
+          </div>
+        </div>
+
+        <!-- The area where bubbles float up and can be clicked -->
+        <div class="game-area" id="gameArea">
+
+          <!-- Start / Game-over overlay message -->
+          <div class="game-message" id="gameMessage">
+            <i class="fa-solid fa-water" style="font-size:2.5rem; color:var(--color-primary-dark);"></i>
+            <h2>Ready to relax?</h2>
+            <p style="color:var(--color-text-light); max-width:340px;">
+              Click "Start Game" and pop as many bubbles as you can in 30 seconds.
+              Just focus on the bubbles and let everything else go for a moment.
+            </p>
+            <button class="btn btn-primary" id="startBtn">Start Game</button>
+          </div>
+
+        </div>
+
+        <!-- Controls below the game -->
+        <div class="game-controls">
+          <button class="btn btn-secondary" id="restartBtn">
+            <i class="fa-solid fa-rotate-right"></i> Restart
+          </button>
+        </div>
+      </div>
+
+      <p style="text-align:center; color:var(--color-text-light); font-size:0.85rem; margin-top:16px;">
+        Tip: There are no wrong moves here — this game is just for you to unwind.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="game.html">Relaxing Game</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>Made with <span class="heart">&#9825;</span> for a college project &mdash; MindCare &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="game.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat | MindCare</title>
+    <link rel="shortcut icon" href="./logo of website.PNG" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-spa"></i> MindCare
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="chat.html" class="active">Chat</a></li>
+        <li><a href="game.html">Relaxing Game</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <header class="page-header">
+    <h1>Talk to MindCare</h1>
+    <p>Share how you're feeling. This is a safe, judgment-free space.</p>
+  </header>
+
+  <!-- ============ CHAT INTERFACE ============ -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div class="chat-wrapper reveal">
+
+        <!-- Chat header with bot avatar -->
+        <div class="chat-header">
+          <div class="bot-avatar"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h2>MindCare Companion</h2>
+            <p>Usually replies instantly</p>
+          </div>
+        </div>
+
+        <!-- Messages appear inside this box (filled by chatbot.js) -->
+        <div class="chat-window" id="chatWindow">
+          <!-- The first bot greeting message is added automatically by chatbot.js -->
+        </div>
+
+        <!-- Quick reply buttons for beginners who don't want to type -->
+        <div class="chat-quick-replies" id="quickReplies">
+          <button class="quick-reply-btn" data-text="I feel stressed">I feel stressed</button>
+          <button class="quick-reply-btn" data-text="I feel anxious">I feel anxious</button>
+          <button class="quick-reply-btn" data-text="I feel sad">I feel sad</button>
+          <button class="quick-reply-btn" data-text="I need motivation">I need motivation</button>
+        </div>
+
+        <!-- Text input + send button -->
+        <form class="chat-input-area" id="chatForm">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Type how you're feeling..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="chat-send-btn" aria-label="Send message">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+      <p style="text-align:center; color:var(--color-text-light); font-size:0.85rem; margin-top:16px;">
+        <i class="fa-solid fa-shield-heart"></i>
+        This chatbot gives automated supportive messages and is not a licensed therapist.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="game.html">Relaxing Game</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>Made with <span class="heart">&#9825;</span> for a college project &mdash; MindCare &copy; 2026</p>
+  </footer>
+
+  <!-- script.js first (shared nav logic), then chatbot.js (chat-only logic) -->
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Makes the site responsive on phones/tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindCare | You Are Not Alone</title>
+  <link rel="shortcut icon" href="./logo of website.PNG" type="image/x-icon">
+  <!-- Google Fonts (Poppins for headings, Nunito for body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Font Awesome CDN - gives us professional icons without downloading images -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Our own stylesheet, shared by every page -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <!-- This exact navbar block is copied on every page.
+       The "active" class simply changes which link is highlighted. -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-spa"></i> MindCare
+      </a>
+
+      <!-- Hamburger button, only visible on mobile (see style.css) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="game.html">Relaxing Game</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO SECTION ============ -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <p class="section-label">Welcome to MindCare</p>
+        <h1>You Are <span>Not Alone</span></h1>
+        <p>
+          MindCare is a safe, calming space built to help you manage stress,
+          anxiety, and depression. Talk to our supportive chat companion,
+          unwind with a relaxing game, or explore simple self-care tips —
+          all in one place, whenever you need it.
+        </p>
+        <div class="hero-buttons">
+          <a href="chat.html" class="btn btn-primary">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="about.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Purely CSS-drawn illustration, so nothing ever breaks -->
+      <div class="hero-visual">
+        <div class="blob">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOTIVATIONAL QUOTE ============ -->
+  <section class="quote-banner">
+    <i class="fa-solid fa-quote-left"></i>
+    <p>"You don't have to control your thoughts. You just have to stop letting them control you."</p>
+    <span>— Dan Millman</span>
+  </section>
+
+  <!-- ============ WHAT WE OFFER (feature cards) ============ -->
+  <section>
+    <div class="container">
+      <p class="section-label" style="text-align:center; display:block;">What We Offer</p>
+      <h2 class="section-title" style="text-align:center;">Simple tools for a calmer mind</h2>
+      <p class="section-subtitle">
+        Every feature on MindCare is designed to be gentle, private, and easy
+        to use — no sign-up required.
+      </p>
+
+      <div class="card-grid">
+        <div class="card reveal">
+          <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+          <h3>AI Chat Support</h3>
+          <p>Share how you feel and receive kind, supportive responses anytime, day or night.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <h3>Relaxing Game</h3>
+          <p>Take a short break and pop some bubbles — a simple way to ease your mind.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Self-Care Resources</h3>
+          <p>Practical, easy tips for sleep, breathing, and everyday emotional wellbeing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALL TO ACTION ============ -->
+  <section>
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ready to feel a little lighter today?</h2>
+      <p class="section-subtitle">It only takes a minute to start the conversation.</p>
+      <a href="chat.html" class="btn btn-primary">Get Started</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="game.html">Relaxing Game</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>Made with <span class="heart">&#9825;</span> for a college project &mdash; MindCare &copy; 2026</p>
+    <p style="margin-top:6px; font-size:0.8rem;">This site is for educational purposes and is not a substitute for professional medical advice.</p>
+  </footer>
+
+  <!-- Shared JavaScript file (nav menu, smooth scroll, animations) -->
+  <script src="script.js"></script>
+</body>
+</html>

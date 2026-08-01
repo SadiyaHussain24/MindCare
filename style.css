@@ -1,0 +1,1076 @@
+/* =========================================================
+   MINDCARE — MAIN STYLESHEET
+   This single file styles every page of the site.
+   It is organised into clearly labelled sections so a
+   beginner can scroll down and find what they need.
+   ========================================================= */
+
+/* ---------- 1. GOOGLE FONTS ---------- */
+/* Poppins = headings (friendly, rounded, modern)
+   Nunito  = body text (soft, easy to read) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+/* ---------- 2. CSS VARIABLES (DESIGN TOKENS) ---------- */
+/* Keeping colors in variables means we only change them
+   ONCE here and the whole site updates automatically. */
+:root {
+  /* Calming color palette: light blue + soft green + white */
+  --color-bg: #f4fbfc;          /* very light blue-white page background */
+  --color-primary: #6ec1e4;     /* light blue - main brand color */
+  --color-primary-dark: #3b9dc9;/* darker blue for hover / emphasis */
+  --color-secondary: #8fd9b6;   /* soft green - secondary accent */
+  --color-secondary-dark: #5cbe94; /* darker green for hover */
+  --color-white: #ffffff;
+  --color-text: #2c3e50;        /* main text color (dark blue-grey, not pure black) */
+  --color-text-light: #6b7c93;  /* lighter grey-blue text for paragraphs */
+  --color-card: #ffffff;        /* card background */
+  --color-border: #e1eef3;      /* soft border color */
+
+  /* Reusable values */
+  --radius: 16px;               /* rounded corners used everywhere */
+  --radius-sm: 10px;
+  --shadow: 0 8px 24px rgba(59, 157, 201, 0.12);
+  --shadow-hover: 0 12px 32px rgba(59, 157, 201, 0.2);
+  --transition: 0.3s ease;
+  --max-width: 1150px;
+}
+
+/* ---------- 3. RESET ---------- */
+/* Removes default browser spacing so our design is consistent
+   across Chrome, Firefox, Edge, etc. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding/border no longer add to element width */
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scrolling for on-page anchor links */
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden; /* prevents small horizontal scroll bugs on mobile */
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Small reusable "eyebrow" label used above section titles */
+.section-label {
+  display: inline-block;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--color-text-light);
+  max-width: 620px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* ---------- 4. BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px; /* pill shaped buttons feel friendly and calm */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-3px); /* gentle lift on hover */
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ---------- 5. NAVIGATION BAR ---------- */
+/* Same navbar markup/classes are reused on every page so the
+   site feels consistent while browsing. */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(244, 251, 252, 0.9);
+  backdrop-filter: blur(8px); /* subtle frosted-glass effect */
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--color-primary-dark);
+}
+
+.nav-logo i {
+  color: var(--color-secondary-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-links li a {
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Hamburger icon - hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--color-primary-dark);
+  border-radius: 3px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* ---------- 6. HERO SECTION (Home page) ---------- */
+.hero {
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-text {
+  flex: 1;
+  animation: fadeInUp 0.9s ease both;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+  color: var(--color-primary-dark);
+  background: linear-gradient(120deg, var(--color-secondary) 0%, var(--color-secondary) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+  padding: 0 4px;
+}
+
+.hero-text p {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Decorative floating blob illustration made with pure CSS
+   (no external image needed = nothing to break) */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 340px;
+}
+
+.blob {
+  width: 320px;
+  height: 320px;
+  border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  animation: float 6s ease-in-out infinite, morph 10s ease-in-out infinite;
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blob i {
+  font-size: 5rem;
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%; }
+  50% { border-radius: 60% 40% 35% 65% / 55% 65% 35% 45%; }
+}
+
+/* ---------- 7. QUOTE BANNER ---------- */
+.quote-banner {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary-dark));
+  color: var(--color-white);
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.quote-banner i {
+  font-size: 1.8rem;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.quote-banner p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quote-banner span {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- 8. CARDS (used on Home / About / Resources) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid var(--color-border);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+}
+
+.card-icon i {
+  font-size: 1.6rem;
+  color: var(--color-white);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+}
+
+.card p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+/* ---------- 9. FOOTER ---------- */
+.footer {
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  padding: 40px 24px 20px;
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary-dark);
+}
+
+.footer .heart {
+  color: #ff8fa3;
+}
+
+/* ---------- 10. PAGE HEADER (About / Chat / Game / Resources / Contact) ---------- */
+.page-header {
+  text-align: center;
+  padding: 70px 24px 40px;
+  background: linear-gradient(180deg, #e8f6fb 0%, var(--color-bg) 100%);
+}
+
+.page-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  color: var(--color-text-light);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* ---------- 11. ABOUT PAGE ---------- */
+.info-block {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.info-block:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.info-icon-large {
+  flex: 0 0 140px;
+  height: 140px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon-large i {
+  font-size: 3rem;
+  color: var(--color-white);
+}
+
+.info-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.info-text h2 {
+  margin-bottom: 10px;
+}
+
+.info-text p {
+  color: var(--color-text-light);
+}
+
+.disclaimer-box {
+  background: #fff8e6;
+  border: 1px solid #f4dfa0;
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.disclaimer-box i {
+  color: #d9a441;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* ---------- 12. CHAT PAGE ---------- */
+.chat-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.chat-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary-dark));
+  color: var(--color-white);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-header .bot-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.chat-header h2 {
+  color: var(--color-white);
+  font-size: 1.1rem;
+}
+
+.chat-header p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.chat-window {
+  height: 420px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #f9fdfe;
+}
+
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  animation: fadeInUp 0.35s ease both;
+}
+
+.message.bot {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.message.user {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+/* "typing..." animation shown while the bot is "thinking" */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+  width: fit-content;
+}
+
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  background: var(--color-primary-dark);
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.2; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 1px solid var(--color-border);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border var(--transition);
+}
+
+.chat-input-area input:focus {
+  border-color: var(--color-primary);
+}
+
+.chat-send-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+}
+
+.chat-send-btn:hover {
+  transform: scale(1.08);
+}
+
+.chat-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 16px;
+  background: var(--color-white);
+}
+
+.quick-reply-btn {
+  background: #eaf7fb;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary-dark);
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.quick-reply-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---------- 13. GAME PAGE (Bubble Pop) ---------- */
+.game-panel {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary-dark));
+  color: var(--color-white);
+  text-align: center;
+}
+
+.game-stats .stat-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.game-stats .stat-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.game-area {
+  position: relative;
+  height: 420px;
+  background: #eaf8fb;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), var(--color-primary) 60%, var(--color-secondary) 100%);
+  box-shadow: 0 4px 10px rgba(59,157,201,0.35);
+  cursor: pointer;
+  border: none;
+  animation-name: rise;
+  animation-timing-function: linear;
+}
+
+.bubble:active {
+  transform: scale(0.8);
+}
+
+@keyframes rise {
+  from { bottom: -80px; opacity: 1; }
+  to { bottom: 100%; opacity: 0.7; }
+}
+
+.bubble.pop {
+  animation: pop 0.25s ease forwards !important;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.game-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(244, 251, 252, 0.95);
+  text-align: center;
+  padding: 24px;
+}
+
+.game-message.hidden {
+  display: none;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--color-white);
+}
+
+/* ---------- 14. RESOURCES PAGE ---------- */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.tip-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 26px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.tip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.tip-card i {
+  font-size: 1.5rem;
+  color: var(--color-primary-dark);
+  background: #eaf7fb;
+  padding: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tip-card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.tip-card p {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.emergency-box {
+  background: #fff1f1;
+  border: 1px solid #f7c9c9;
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.emergency-box h2 {
+  color: #c0392b;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emergency-box p.note {
+  color: var(--color-text-light);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.emergency-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.emergency-item {
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+}
+
+.emergency-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.emergency-item span {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+/* ---------- 15. CONTACT PAGE ---------- */
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1.3;
+  min-width: 300px;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+  border: 1px solid var(--color-border);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(110, 193, 228, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-success {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #e7f9ef;
+  border: 1px solid var(--color-secondary);
+  color: #2e7d5c;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  font-weight: 600;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.form-success.show {
+  display: flex;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-info-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border: 1px solid var(--color-border);
+}
+
+.contact-info-card i {
+  font-size: 1.3rem;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  padding: 12px;
+  border-radius: 50%;
+}
+
+.contact-info-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.contact-info-card p {
+  color: var(--color-text-light);
+  font-size: 0.88rem;
+}
+
+/* ---------- 16. SCROLL-REVEAL ANIMATION ---------- */
+/* Elements start slightly lower + invisible, then JS adds
+   the "visible" class using IntersectionObserver, which
+   triggers this transition. */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- 17. RESPONSIVE DESIGN ---------- */
+
+@media (max-width: 900px) {
+
+    .card-grid,
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .emergency-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Turn nav into a mobile dropdown */
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 24px 20px;
+        gap: 4px;
+        box-shadow: var(--shadow);
+        display: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        text-align: center;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .info-block,
+    .info-block:nth-child(even) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-wrapper {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 56px 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .blob {
+        width: 220px;
+        height: 220px;
+    }
+
+    .chat-window {
+        height: 360px;
+    }
+
+    .game-area {
+        height: 360px;
+    }
+}

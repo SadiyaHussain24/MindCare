@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | MindCare</title>
+    <link rel="shortcut icon" href="./logo of website.PNG" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-spa"></i> MindCare
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="game.html">Relaxing Game</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <header class="page-header">
+    <h1>Get In Touch</h1>
+    <p>Have a question or feedback about MindCare? Send us a message below.</p>
+  </header>
+
+  <!-- ============ CONTACT SECTION ============ -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div class="contact-wrapper">
+
+        <!-- Contact form -->
+        <div class="contact-form reveal">
+
+          <p style="color:red; font-size:30px;">HELLO</p>
+
+          <!-- Success message, hidden by default. script.js adds the
+               "show" class to reveal it after successful submission. -->
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Thank you! Your message has been sent successfully.</span>
+          </div>
+
+          <form method="POST" action="contact.php">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+
+              <input type="text" id="name" name="txtName" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="txtEmail" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="txtMessage" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" name="submit" class="btn btn-primary btn-full">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact info cards -->
+        <div class="contact-info">
+          <div class="contact-info-card reveal">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <h4>Email Us</h4>
+              <p>support@mindcare-example.com</p>
+            </div>
+          </div>
+          <div class="contact-info-card reveal">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <h4>Call Us</h4>
+              <p>(000) 123-4567</p>
+            </div>
+          </div>
+          <div class="contact-info-card reveal">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h4>Visit</h4>
+              <p>MindCare Wellness Center, City, Country</p>
+            </div>
+          </div>
+          <div class="contact-info-card reveal">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <h4>Available</h4>
+              <p>Our AI chat companion is available 24/7</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="game.html">Relaxing Game</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>Made with <span class="heart">&#9825;</span> for a college project &mdash; MindCare &copy; 2026</p>
+  </footer>
+
+  <!-- script.js handles the form submission logic for this page -->
+      <script src="script.js"></script>
+
+</body>
+</html>
